@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>Lab Reservations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Teacher</th>
+                <th>Lab</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Approved</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.teacher.nome_completo }}</td>
+                    <td>{{ reservation.lab.nome }}</td>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.start_time }}</td>
+                    <td>{{ reservation.end_time }}</td>
+                    <td>{{ reservation.approved }}</td>
+                    <td>
+                        {% if not reservation.approved %}
+                            <a href="{% url 'approve_reservation' reservation.id %}">Approve</a>
+                        {% else %}
+                            <a href="{% url 'cancel_reservation' reservation.id %}">Cancel</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
