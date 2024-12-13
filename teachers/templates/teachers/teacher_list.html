@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Professores</title>
-</head>
-<body>
-    <h1>Lista de Professores</h1>
-    <ul>
-        {% for teacher in teachers %}
-            <li>{{ teacher.nome_completo }} - {{ teacher.email }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+<h2>Professores</h2>
+<ul>
+    {% for teacher in teachers %}
+        <li>
+            {{ teacher.name }}
+            <a href="{% url 'edit_teacher' teacher.id %}">Editar</a>
+            <a href="{% url 'delete_teacher' teacher.id %}">Deletar</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_teacher' %}">Adicionar novo professor</a>

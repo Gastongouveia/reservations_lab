@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Reservation
-from .forms import TeacherForm
 
 def is_admin(user):
     return user.is_staff
