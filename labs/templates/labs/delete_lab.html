@@ -1,0 +1,7 @@
+<h2>Deletar laboratório</h2>
+<p>Você tem certeza que deseja deletar "{{ lab.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim, deletar</button>
+</form>
+<a href="{% url 'list_labs' %}">Cancelar</a>

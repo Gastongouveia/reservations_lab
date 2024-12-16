@@ -4,7 +4,7 @@ from django.db import models
 class Lab(models.Model):
     name = models.CharField(max_length=100)
     capacity = models.PositiveIntegerField()
-    resouces = models.TextField(blank=True, null=True)
+    resources = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name

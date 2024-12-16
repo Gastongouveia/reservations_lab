@@ -1,0 +1,11 @@
+<h2>Laboratórios</h2>
+<ul>
+    {% for lab in labs %}
+        <li>
+            {{ lab.name }} (Capacidade: {{ lab.capacity }})
+            <a href="{% url 'edit_lab' lab.id %}">Editar</a>
+            <a href="{% url 'delete_lab' lab.id %}">Deletar</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_lab' %}">Adicionar novo laboratório</a>
