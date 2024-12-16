@@ -1,0 +1,6 @@
+<h2>Pending Reservations</h2>
+<ul>
+    {% for reservation in reservations %}
+        <li>{{ reservation.lab.name }} - {{ reservation.date }} - {{ reservation.teacher.name }}</li>
+    {% endfor %}
+</ul>

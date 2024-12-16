@@ -1,0 +1,6 @@
+<h2>Minhas reservas</h2>
+<ul>
+    {% for reservation in reservations %}
+        <li>{{ reservation.lab.name }} - {{ reservation.date }} - Aprovada: {{ reservation.approved }}</li>
+    {% endfor %}
+</ul>

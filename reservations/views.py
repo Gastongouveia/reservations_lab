@@ -6,6 +6,13 @@ def is_admin(user):
     return user.is_staff
 
 @login_required
+def home(request):
+    if request.user.is_staff:  # Usuário administrador
+        return redirect('pending_reservations')
+    else:  # Usuário professor
+        return redirect('my_reservations') 
+
+@login_required
 @user_passes_test(is_admin)
 def pending_reservations(request):
     reservations = Reservation.objects.filter(approved=False)
